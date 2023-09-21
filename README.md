@@ -77,23 +77,39 @@ celery -A veritas worker --loglevel=INFO
 python manage.py runserver
 ```
 
-6. Create an account at [Project Veritas website].
-7. Once you have created an account, you can start requesting tasks to be automated. To do this, click the "Create new task" button and enter the details of the task that you want to automate.
-8. Project Veritas will use the LLM to understand your request and to automate the task using APIs from different apps and services.
-9. Once the task is complete, you will receive a notification. You can then view the results of the task by clicking the "View results" button.
+Here is a more technical todo list for Project Veritas, focused on development and listing the required features:
 
-**Pricing**
+**Required Features**
 
-Project Veritas is currently in beta and is free to use for a limited time. Once the beta period is over, there will be a monthly subscription fee.
+* **User authentication:** Users should be able to create accounts and log in to the application.
+* **Content management:** Users should be able to create, edit, and delete content.
+* **Content moderation:** Users should be able to flag content for moderation, and moderators should be able to review and remove content that violates the terms of service.
+* **Content search:** Users should be able to search for content by title, tags, and other criteria.
+* **Content recommendations:** The application should recommend content to users based on their interests.
+* **Notifications:** Users should be notified of new content, comments, and other activity on the application.
+* **Analytics:** Users should be able to view analytics about their content and how it is performing.
 
-**Support**
+**Technical Approach**
 
-If you have any questions about Project Veritas, please contact us at [Project Veritas support email].
+The application can be developed using a variety of technologies, such as:
 
-**Additional information**
+* **Programming language:** Python, Django, or Node.js are all popular choices for developing web applications.
+* **Web framework:** Django or Laravel are popular web frameworks that can be used to develop complex web applications quickly and easily.
+* **Database:** PostgreSQL or MySQL are popular databases that can be used to store the application's data.
+* **Cloud platform:** AWS, Azure, or GCP are all popular cloud platforms that can be used to deploy and host the application.
 
-Project Veritas is still under development, but we are constantly adding new features and improving the accuracy of the LLM. We are also working on adding support for new apps and services.
+**Development Steps**
 
-We believe that Project Veritas has the potential to revolutionize the way that businesses operate. By automating tasks, Project Veritas can help businesses to be more productive, efficient, and profitable.
+The following steps can be used to develop the application:
 
-We encourage you to try Project Veritas today and see how it can help you to grow your business.
+1. **Set up the development environment.** This includes installing the necessary software and tools, such as a programming language interpreter, a web framework, and a database.
+2. **Create a database schema.** This defines the structure of the database tables and the relationships between the tables.
+3. **Develop the back-end code.** This includes writing the code that handles user authentication, content management, content moderation, content search, content recommendations, notifications, and analytics.
+4. **Develop the front-end code.** This includes writing the code that renders the user interface and handles user interactions.
+5. **Integrate the back-end and front-end code.** This includes writing the code that connects the two parts of the application.
+6. **Test the application.** This includes running unit tests, integration tests, and system tests to ensure that the application works as expected.
+7. **Deploy the application.** This includes making the application available to users.
+
+This is just a general overview of the development process. The specific steps involved will vary depending on the specific technologies and features that are being used.
+
+Once the application is deployed, it is important to monitor it for performance and security issues. It is also important to continue developing the application by adding new features and fixing bugs.
