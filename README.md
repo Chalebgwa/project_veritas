@@ -1,5 +1,7 @@
 **Project Veritas README**
 
+![Project Logo](assets/logo.jpeg)
+
 **Overview**
 
 Project Veritas is a web-based application built with Python 3 and Django that allows users to request tasks to be automated. The application uses a large language model (LLM) to understand the user's request and to automate the task using APIs from different apps and services.
