@@ -39,7 +39,7 @@ To run Project Veritas locally, follow these steps:
 1. Clone this repository to your local machine.
 
    ```bash
-   git clone https://github.com/yourusername/veritas.git
+   git clone https://github.com/Chalebgwa/project_veritas
    ```
 
 2. Navigate to the project directory.
@@ -99,6 +99,6 @@ Project Veritas is open-source software released under the [MIT License](LICENSE
 
 ## Contact
 
-For any questions, feedback, or suggestions regarding Project Veritas, please contact us at [your.email@example.com](mailto:your.email@example.com).
+<!-- For any questions, feedback, or suggestions regarding Project Veritas, please contact us at [your.email@example.com](mailto:your.email@example.com). -->
 
 Thank you for choosing Project Veritas for your business planning needs. We look forward to helping you turn your ideas into successful ventures!
