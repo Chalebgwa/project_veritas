@@ -6,6 +6,8 @@
 
 # Project Veritas
 
+![Project Veritas Diagram](assets/chatuml-diagram.svg)
+
 ## Overview
 
 Project Veritas is an innovative web application that empowers aspiring entrepreneurs and business enthusiasts to effortlessly create comprehensive business plans with just a few pieces of information. With the goal of simplifying the process of turning an idea into a full-fledged business, Project Veritas leverages the power of machine learning and data analysis to generate business plans, suggest business names, identify available domain names, recommend ideal locations, assess market potential, and estimate the probability of success based on historical data from similar business sectors.
