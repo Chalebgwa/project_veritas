@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Business Plan - Project Veritas{% endblock %}
+
+{% block content %}
+<div class="card" style="max-width: 800px; margin: 0 auto;">
+    <h1 style="color: #2c3e50; margin-bottom: 1.5rem;">Create Your Business Plan</h1>
+    <p style="margin-bottom: 2rem; color: #7f8c8d;">Fill in the details below to generate a comprehensive business plan, market analysis, location recommendations, and more.</p>
+    
+    <form method="post" action="{% url 'create_business_idea' %}">
+        {% csrf_token %}
+        
+        <div style="margin-bottom: 1.5rem;">
+            <label for="business_name" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Business Name *</label>
+            <input type="text" 
+                   id="business_name" 
+                   name="business_name" 
+                   required 
+                   style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;"
+                   placeholder="Enter your business name">
+        </div>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <label for="industry" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Industry *</label>
+            <select id="industry" 
+                    name="industry" 
+                    required 
+                    style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                <option value="">Select an industry</option>
+                <option value="Technology">Technology</option>
+                <option value="Healthcare">Healthcare</option>
+                <option value="Retail">Retail</option>
+                <option value="Food & Beverage">Food & Beverage</option>
+                <option value="Education">Education</option>
+                <option value="Finance">Finance</option>
+                <option value="Real Estate">Real Estate</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Manufacturing">Manufacturing</option>
+                <option value="Services">Services</option>
+                <option value="E-commerce">E-commerce</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <label for="business_description" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Business Description *</label>
+            <textarea id="business_description" 
+                      name="business_description" 
+                      required 
+                      rows="5" 
+                      style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;"
+                      placeholder="Describe your business idea, products, or services..."></textarea>
+        </div>
+        
+        <div style="margin-bottom: 1.5rem;">
+            <label for="target_market" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Target Market *</label>
+            <input type="text" 
+                   id="target_market" 
+                   name="target_market" 
+                   required 
+                   style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;"
+                   placeholder="e.g., Young professionals, Small businesses, Students">
+        </div>
+        
+        <div style="margin-bottom: 2rem;">
+            <label for="initial_investment" style="display: block; margin-bottom: 0.5rem; font-weight: bold;">Initial Investment (Optional)</label>
+            <input type="number" 
+                   id="initial_investment" 
+                   name="initial_investment" 
+                   step="0.01" 
+                   style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;"
+                   placeholder="Enter initial investment amount in USD">
+        </div>
+        
+        <div style="text-align: center;">
+            <button type="submit" class="btn btn-success" style="font-size: 1.1rem; padding: 1rem 3rem;">
+                Generate Business Plan
+            </button>
+        </div>
+    </form>
+</div>
+
+<div class="card" style="max-width: 800px; margin: 2rem auto; background-color: #e8f4f8;">
+    <h3 style="color: #2c3e50; margin-bottom: 1rem;">What You'll Get:</h3>
+    <ul style="list-style-position: inside; color: #555;">
+        <li style="margin-bottom: 0.5rem;">✅ Comprehensive Business Plan</li>
+        <li style="margin-bottom: 0.5rem;">✅ Market Analysis Report</li>
+        <li style="margin-bottom: 0.5rem;">✅ Top 3 Location Recommendations</li>
+        <li style="margin-bottom: 0.5rem;">✅ Domain Name Suggestions</li>
+        <li style="margin-bottom: 0.5rem;">✅ Success Probability Analysis</li>
+        <li style="margin-bottom: 0.5rem;">✅ Financial Projections</li>
+    </ul>
+</div>
+{% endblock %}

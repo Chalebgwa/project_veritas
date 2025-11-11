@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ business_idea.business_name }} - Business Plan{% endblock %}
+
+{% block content %}
+<div style="text-align: center; margin-bottom: 2rem;">
+    <h1 style="color: #2c3e50;">{{ business_idea.business_name }}</h1>
+    <p style="color: #7f8c8d; font-size: 1.1rem;">{{ business_idea.industry }} | Created on {{ business_idea.created_at|date:"F d, Y" }}</p>
+</div>
+
+{% if business_plan %}
+<div class="card">
+    <h2 style="color: #3498db; margin-bottom: 1rem;">Success Probability</h2>
+    <div style="text-align: center; padding: 2rem;">
+        <div style="display: inline-block; width: 150px; height: 150px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: bold;">
+            {{ business_plan.success_probability }}%
+        </div>
+        <p style="margin-top: 1rem; color: #7f8c8d;">Based on market analysis and historical data</p>
+    </div>
+</div>
+
+<div class="card">
+    <h2 style="color: #3498db; margin-bottom: 1rem;">📋 Executive Summary</h2>
+    <p style="line-height: 1.8; color: #555;">{{ business_plan.executive_summary }}</p>
+</div>
+
+<div class="card">
+    <h2 style="color: #3498db; margin-bottom: 1rem;">🎯 Products & Services</h2>
+    <p style="line-height: 1.8; color: #555;">{{ business_plan.products_services }}</p>
+</div>
+
+<div class="card">
+    <h2 style="color: #3498db; margin-bottom: 1rem;">📊 Market Analysis</h2>
+    <p style="line-height: 1.8; color: #555;">{{ business_plan.market_analysis }}</p>
+</div>
+
+<div class="card">
+    <h2 style="color: #3498db; margin-bottom: 1rem;">🏢 Organization Structure</h2>
+    <p style="line-height: 1.8; color: #555;">{{ business_plan.organization_structure }}</p>
+</div>
+
+<div class="card">
+    <h2 style="color: #3498db; margin-bottom: 1rem;">📢 Marketing Strategy</h2>
+    <p style="line-height: 1.8; color: #555;">{{ business_plan.marketing_strategy }}</p>
+</div>
+
+<div class="card">
+    <h2 style="color: #3498db; margin-bottom: 1rem;">💰 Financial Projections</h2>
+    <p style="line-height: 1.8; color: #555;">{{ business_plan.financial_projections }}</p>
+</div>
+{% endif %}
+
+{% if market_analysis %}
+<div class="card">
+    <h2 style="color: #3498db; margin-bottom: 1rem;">🔍 Detailed Market Analysis</h2>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
+        <div style="background-color: #e8f4f8; padding: 1rem; border-radius: 4px;">
+            <p style="color: #7f8c8d; margin-bottom: 0.5rem;">Market Size</p>
+            <p style="font-size: 1.3rem; font-weight: bold; color: #2c3e50;">{{ market_analysis.market_size }}</p>
+        </div>
+        
+        <div style="background-color: #e8f4f8; padding: 1rem; border-radius: 4px;">
+            <p style="color: #7f8c8d; margin-bottom: 0.5rem;">Growth Rate</p>
+            <p style="font-size: 1.3rem; font-weight: bold; color: #2c3e50;">{{ market_analysis.growth_rate }}%</p>
+        </div>
+        
+        <div style="background-color: #e8f4f8; padding: 1rem; border-radius: 4px;">
+            <p style="color: #7f8c8d; margin-bottom: 0.5rem;">Competition</p>
+            <p style="font-size: 1.3rem; font-weight: bold; color: #2c3e50; text-transform: capitalize;">{{ market_analysis.competition_level }}</p>
+        </div>
+    </div>
+    
+    <h3 style="color: #2c3e50; margin-top: 1.5rem; margin-bottom: 0.5rem;">Target Demographics</h3>
+    <p style="line-height: 1.8; color: #555;">{{ market_analysis.target_demographics }}</p>
+    
+    <h3 style="color: #2c3e50; margin-top: 1.5rem; margin-bottom: 0.5rem;">Market Trends</h3>
+    <p style="line-height: 1.8; color: #555;">{{ market_analysis.market_trends }}</p>
+    
+    <h3 style="color: #2c3e50; margin-top: 1.5rem; margin-bottom: 0.5rem;">Opportunities</h3>
+    <p style="line-height: 1.8; color: #555;">{{ market_analysis.opportunities }}</p>
+    
+    <h3 style="color: #2c3e50; margin-top: 1.5rem; margin-bottom: 0.5rem;">Threats</h3>
+    <p style="line-height: 1.8; color: #555;">{{ market_analysis.threats }}</p>
+</div>
+{% endif %}
+
+{% if locations %}
+<div class="card">
+    <h2 style="color: #3498db; margin-bottom: 1rem;">📍 Recommended Locations</h2>
+    <div style="display: grid; gap: 1rem;">
+        {% for location in locations %}
+        <div style="border: 1px solid #ddd; padding: 1.5rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h3 style="color: #2c3e50; margin-bottom: 0.5rem;">{{ location.city }}, {{ location.state }}</h3>
+                <p style="color: #7f8c8d; margin-bottom: 0.5rem;">Population: {{ location.population|default:"N/A" }}</p>
+                <p style="color: #555;">{{ location.reasoning }}</p>
+            </div>
+            <div style="text-align: center; min-width: 80px;">
+                <div style="font-size: 1.5rem; font-weight: bold; color: #27ae60;">{{ location.score }}</div>
+                <div style="color: #7f8c8d; font-size: 0.9rem;">Score</div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+{% if domains %}
+<div class="card">
+    <h2 style="color: #3498db; margin-bottom: 1rem;">🌐 Domain Name Suggestions</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+        {% for domain in domains %}
+        <div style="border: 1px solid #ddd; padding: 1rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+            <div style="font-weight: bold; color: #2c3e50;">{{ domain.domain_name }}</div>
+            {% if domain.is_available %}
+                <span style="background-color: #27ae60; color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.9rem;">Available</span>
+            {% else %}
+                <span style="background-color: #e74c3c; color: white; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.9rem;">Taken</span>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<div style="text-align: center; margin-top: 2rem;">
+    <a href="{% url 'home' %}" class="btn btn-primary">Back to Home</a>
+    <a href="{% url 'create_business_idea' %}" class="btn btn-success">Create Another Plan</a>
+</div>
+{% endblock %}
