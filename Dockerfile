@@ -11,15 +11,11 @@ WORKDIR /app
 # Copy the requirements file into the container
 COPY requirements.txt /app/
 
-# Install project dependencies in the virtual environment
-RUN python3 -m venv venv
-RUN /bin/bash -c "source venv/bin/activate && pip install -r requirements.txt"
+# Install project dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy your Django project into the container
-COPY . /app/
+COPY veritas /app/
 
-# Expose the port your application will run on
-EXPOSE 8000
-
-# Command to run the application
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Run migrations and start the server
+CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]

@@ -28,9 +28,9 @@ Project Veritas is an innovative web application that empowers aspiring entrepre
 
 ## Technology Stack
 
-- **Framework**: Django
-- **Database**: MongoDB
-- **Machine Learning**: Python-based machine learning models for data analysis and prediction
+- **Framework**: Django 4.2.24
+- **Database**: SQLite (development), MongoDB support available via djongo
+- **Machine Learning**: Python-based machine learning models for data analysis and prediction (planned)
 - **Web Development**: HTML, CSS, JavaScript
 - **Hosting**: Deploy on cloud platforms like AWS, Azure, or Heroku
 
@@ -71,15 +71,27 @@ To run Project Veritas locally, follow these steps:
    pip install -r requirements.txt
    ```
 
-6. Configure the MongoDB database connection in `settings.py`.
+6. Run database migrations.
 
-7. Run the application.
+   ```bash
+   python manage.py migrate
+   ```
+
+7. (Optional) Create a superuser for admin access.
+
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+8. Run the application.
 
    ```bash
    python manage.py runserver
    ```
 
-8. Access the application in your web browser at `http://localhost:8000`.
+9. Access the application in your web browser at `http://localhost:8000`.
+
+**Note:** The application is currently configured to use SQLite for ease of development. To use MongoDB instead, install djongo (`pip install djongo`) and update the `DATABASES` configuration in `veritas/settings.py`.
 
 ## Contributing
 

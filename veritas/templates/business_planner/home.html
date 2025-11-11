@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="hero" style="text-align: center; padding: 4rem 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 8px; margin-bottom: 3rem;">
+    <h1 style="font-size: 3rem; margin-bottom: 1rem;">Welcome to Project Veritas</h1>
+    <p style="font-size: 1.3rem; margin-bottom: 2rem;">Transform Your Business Ideas into Comprehensive Plans</p>
+    <a href="{% url 'create_business_idea' %}" class="btn btn-success" style="font-size: 1.2rem; padding: 1rem 2rem;">Get Started Now</a>
+</div>
+
+<div class="features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+    <div class="card">
+        <h3 style="color: #3498db; margin-bottom: 1rem;">📋 Business Plan Generation</h3>
+        <p>Create comprehensive business plans with just a few pieces of information. Our system generates detailed plans tailored to your industry and target market.</p>
+    </div>
+    
+    <div class="card">
+        <h3 style="color: #3498db; margin-bottom: 1rem;">💡 Business Name Suggestions</h3>
+        <p>Get intelligent suggestions for business names that are memorable, distinctive, and aligned with your brand identity.</p>
+    </div>
+    
+    <div class="card">
+        <h3 style="color: #3498db; margin-bottom: 1rem;">🌐 Domain Name Lookup</h3>
+        <p>Find available domain names to establish a strong online presence for your business right from the start.</p>
+    </div>
+    
+    <div class="card">
+        <h3 style="color: #3498db; margin-bottom: 1rem;">📍 Location Recommendations</h3>
+        <p>Discover ideal locations for your business based on market trends, demographics, and growth potential.</p>
+    </div>
+    
+    <div class="card">
+        <h3 style="color: #3498db; margin-bottom: 1rem;">📊 Market Analysis</h3>
+        <p>Get valuable insights into your chosen market, including size, demographics, competition, and growth prospects.</p>
+    </div>
+    
+    <div class="card">
+        <h3 style="color: #3498db; margin-bottom: 1rem;">📈 Success Probability</h3>
+        <p>Understand your business's probability of success based on historical data from similar business sectors.</p>
+    </div>
+</div>
+
+{% if recent_plans %}
+<div class="recent-plans">
+    <h2 style="margin-bottom: 1.5rem; color: #2c3e50;">Recent Business Plans</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+        {% for idea in recent_plans %}
+        <div class="card" style="border-left: 4px solid #3498db;">
+            <h3 style="color: #2c3e50; margin-bottom: 0.5rem;">{{ idea.business_name }}</h3>
+            <p style="color: #7f8c8d; margin-bottom: 0.5rem;"><strong>Industry:</strong> {{ idea.industry }}</p>
+            <p style="margin-bottom: 1rem;">{{ idea.business_description|truncatewords:20 }}</p>
+            <a href="{% url 'business_plan_detail' idea.pk %}" class="btn btn-primary" style="font-size: 0.9rem;">View Details</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<div class="cta" style="text-align: center; margin-top: 4rem; padding: 3rem; background-color: #ecf0f1; border-radius: 8px;">
+    <h2 style="color: #2c3e50; margin-bottom: 1rem;">Ready to Start Your Business Journey?</h2>
+    <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #7f8c8d;">Join hundreds of entrepreneurs who have used Project Veritas to bring their ideas to life.</p>
+    <a href="{% url 'create_business_idea' %}" class="btn btn-success" style="font-size: 1.1rem;">Create Your Business Plan</a>
+</div>
+{% endblock %}
